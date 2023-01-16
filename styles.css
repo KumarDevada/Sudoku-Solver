@@ -12,9 +12,9 @@ body {
     justify-content: flex-start; */
     flex-direction: column;
     justify-content: space-between;
-    width: 405px;
+    width: 415px;
     background-color: #333;
-    height: 405px;
+    height: 415px;
     border: 5px solid black;
     box-shadow: 10px 10px 5px #aaaaaa;
 }
