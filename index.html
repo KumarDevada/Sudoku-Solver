@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Sudoku Solver</h1>
+    <div class="board">
+
+        <div class="row">
+            <div class="matrix">
+                <div class="grids">
+                    <label for="00"><input type="text" value="0" maxlength="1" id="00"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="01"><input type="text" value="0" maxlength="1" id="01"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="02"><input type="text" value="0" maxlength="1" id="02"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="10"><input type="text" value="0" maxlength="1" id="10"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="11"><input type="text" value="0" maxlength="1" id="11"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="12"><input type="text" value="0" maxlength="1" id="12"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="20"><input type="text" value="0" maxlength="1" id="20"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="21"><input type="text" value="0" maxlength="1" id="21"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="22"><input type="text" value="0" maxlength="1" id="22"></label>
+                </div>
+            </div>
+
+
+
+            <div class="matrix">
+                <div class="grids">
+                    <label for="03"><input type="text" value="0" maxlength="1" id="03"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="04"><input type="text" value="0" maxlength="1" id="04"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="05"><input type="text" value="0" maxlength="1" id="05"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="13"><input type="text" value="0" maxlength="1" id="13"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="14"><input type="text" value="0" maxlength="1" id="14"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="15"><input type="text" value="0" maxlength="1" id="15"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="23"><input type="text" value="0" maxlength="1" id="23"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="24"><input type="text" value="0" maxlength="1" id="24"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="25"><input type="text" value="0" maxlength="1" id="25"></label>
+                </div>
+            </div>
+
+
+
+            <div class="matrix">
+                <div class="grids">
+                    <label for="06"><input type="text" value="0" maxlength="1" id="06"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="07"><input type="text" value="0" maxlength="1" id="07"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="08"><input type="text" value="0" maxlength="1" id="08"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="16"><input type="text" value="0" maxlength="1" id="16"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="17"><input type="text" value="0" maxlength="1" id="17"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="18"><input type="text" value="0" maxlength="1" id="18"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="26"><input type="text" value="0" maxlength="1" id="26"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="27"><input type="text" value="0" maxlength="1" id="27"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="28"><input type="text" value="0" maxlength="1" id="28"></label>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="matrix">
+                <div class="grids">
+                    <label for="30"><input type="text" value="0" maxlength="1" id="30"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="31"><input type="text" value="0" maxlength="1" id="31"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="32"><input type="text" value="0" maxlength="1" id="32"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="40"><input type="text" value="0" maxlength="1" id="40"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="41"><input type="text" value="0" maxlength="1" id="41"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="42"><input type="text" value="0" maxlength="1" id="42"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="50"><input type="text" value="0" maxlength="1" id="50"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="51"><input type="text" value="0" maxlength="1" id="51"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="52"><input type="text" value="0" maxlength="1" id="52"></label>
+                </div>
+            </div>
+
+
+
+            <div class="matrix">
+                <div class="grids">
+                    <label for="33"><input type="text" value="0" maxlength="1" id="33"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="34"><input type="text" value="0" maxlength="1" id="34"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="35"><input type="text" value="0" maxlength="1" id="35"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="43"><input type="text" value="0" maxlength="1" id="43"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="44"><input type="text" value="0" maxlength="1" id="44"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="45"><input type="text" value="0" maxlength="1" id="45"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="53"><input type="text" value="0" maxlength="1" id="53"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="54"><input type="text" value="0" maxlength="1" id="54"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="55"><input type="text" value="0" maxlength="1" id="55"></label>
+                </div>
+            </div>
+
+
+
+            <div class="matrix">
+                <div class="grids">
+                    <label for="36"><input type="text" value="0" maxlength="1" id="36"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="37"><input type="text" value="0" maxlength="1" id="37"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="38"><input type="text" value="0" maxlength="1" id="38"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="46"><input type="text" value="0" maxlength="1" id="46"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="47"><input type="text" value="0" maxlength="1" id="47"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="48"><input type="text" value="0" maxlength="1" id="48"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="56"><input type="text" value="0" maxlength="1" id="56"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="57"><input type="text" value="0" maxlength="1" id="57"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="58"><input type="text" value="0" maxlength="1" id="58"></label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="matrix">
+                <div class="grids">
+                    <label for="60"><input type="text" value="0" maxlength="1" id="60"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="61"><input type="text" value="0" maxlength="1" id="61"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="62"><input type="text" value="0" maxlength="1" id="62"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="70"><input type="text" value="0" maxlength="1" id="70"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="71"><input type="text" value="0" maxlength="1" id="71"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="72"><input type="text" value="0" maxlength="1" id="72"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="80"><input type="text" value="0" maxlength="1" id="80"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="81"><input type="text" value="0" maxlength="1" id="81"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="82"><input type="text" value="0" maxlength="1" id="82"></label>
+                </div>
+            </div>
+
+
+
+            <div class="matrix">
+                <div class="grids">
+                    <label for="63"><input type="text" value="0" maxlength="1" id="63"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="64"><input type="text" value="0" maxlength="1" id="64"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="65"><input type="text" value="0" maxlength="1" id="65"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="73"><input type="text" value="0" maxlength="1" id="73"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="74"><input type="text" value="0" maxlength="1" id="74"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="75"><input type="text" value="0" maxlength="1" id="75"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="83"><input type="text" value="0" maxlength="1" id="83"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="84"><input type="text" value="0" maxlength="1" id="84"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="85"><input type="text" value="0" maxlength="1" id="85"></label>
+                </div>
+            </div>
+
+
+
+            <div class="matrix">
+                <div class="grids">
+                    <label for="66"><input type="text" value="0" maxlength="1" id="66"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="67"><input type="text" value="0" maxlength="1" id="67"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="68"><input type="text" value="0" maxlength="1" id="68"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="76"><input type="text" value="0" maxlength="1" id="76"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="77"><input type="text" value="0" maxlength="1" id="77"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="78"><input type="text" value="0" maxlength="1" id="78"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="86"><input type="text" value="0" maxlength="1" id="86"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="87"><input type="text" value="0" maxlength="1" id="87"></label>
+                </div>
+
+                <div class="grids">
+                    <label for="88"><input type="text" value="0" maxlength="1" id="88"></label>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div class="popup" id="popup">
+        <img src="tick.png" alt="">
+        <h2>Sorry !</h2>
+        <p>Invalid Combination.</p>
+        <!-- <p>Please Try Again.</p> -->
+        <button type="button" onclick="closePopup()">Try Again</button>
+    </div>
+
+    <input type="button" name="" id="btn" value="Solve" onclick="driver(grid)">
+
+
+    <input type="button" name="" id="btn" value="Reset" onclick="printZero()">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        let popup = document.getElementById("popup");
+
+        function openPopup() {
+            popup.classList.add("open-popup");
+        }
+
+        function closePopup() {
+            printZero();
+            popup.classList.remove("open-popup");
+        }
+
+        function getElement(id) {
+            var elem = document.getElementById(id);
+            if (typeof elem !== 'undefined' && elem !== null) {
+                return parseInt(document.getElementById(id).value);
+            } else {
+                return -1;
+            }
+        }
+
+        let grid = [];
+
+        // creating two dimensional array
+        for (let i = 0; i < 9; i++) {
+            for (let j = 0; j < 9; j++) {
+                grid[i] = [];
+            }
+        }
+
+        // inserting elements to array
+
+        function inputing() {
+
+            for (let i = 0; i < 9; i++) {
+                for (let j = 0; j < 9; j++) {
+
+                    str = i.toString() + j.toString();
+                    grid[i][j] = getElement(str);
+                }
+            }
+            // console.log(grid);
+        }
+
+
+
+        let N = 9;
+
+        function solveSudoku(grid, row, col) {
+
+
+            if (row == N - 1 && col == N) {
+                return true;
+            }
+
+            if (col == N) {
+                row++;
+                col = 0;
+            }
+
+
+            if (grid[row][col] != 0) {
+                return solveSudoku(grid, row, col + 1);
+            }
+
+            for (let num = 1; num < 10; num++) {
+
+                // Check if it is safe to place
+                // the num (1-9) in the given
+                // row ,col ->we move to next column
+                if (isSafe(grid, row, col, num)) {
+
+                    /* assigning the num in the current
+                    (row,col) position of the grid and
+                    assuming our assigned num in the position
+                    is correct */
+                    grid[row][col] = num;
+
+                    // Checking for next
+                    // possibility with next column
+                    if (solveSudoku(grid, row, col + 1)) {
+                        return true;
+                    }
+                }
+
+                /* removing the assigned num , since our
+                assumption was wrong , and we go for next
+                assumption with diff num value */
+                grid[row][col] = 0;
+            }
+
+            return false;
+        }
+
+        /* A utility function to print grid */
+        function print(grid) {
+            for (let i = 0; i < N; i++) {
+                for (let j = 0; j < N; j++) {
+                    str = i.toString() + j.toString();
+                    document.getElementById(str).value = grid[i][j];
+
+                }
+            }
+        }
+
+        function printZero() {
+            for (let i = 0; i < N; i++) {
+                for (let j = 0; j < N; j++) {
+                    str = i.toString() + j.toString();
+                    document.getElementById(str).value = 0;
+
+                }
+            }
+        }
+
+
+        function isSafe(grid, row, col, num) {
+
+
+            for (let x = 0; x <= 8; x++)
+                if (grid[row][x] == num) {
+                    return false;
+                }
+
+
+            for (let x = 0; x <= 8; x++)
+                if (grid[x][col] == num) {
+                    return false;
+                }
+
+
+            let startRow = row - row % 3,
+                startCol = col - col % 3;
+
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (grid[i + startRow][j + startCol] == num) {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+
+
+        function driver(grid) {
+            inputing();
+            if (solveSudoku(grid, 0, 0)) {
+                print(grid);
+            } else {
+                console.log("Sorry.");
+                openPopup();
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
