@@ -12,9 +12,9 @@ body {
     justify-content: flex-start; */
     flex-direction: column;
     justify-content: space-between;
-    width: 415px;
+    width: 405px;
     background-color: #333;
-    height: 415px;
+    height: 405px;
     border: 5px solid black;
     box-shadow: 10px 10px 5px #aaaaaa;
 }
@@ -37,8 +37,8 @@ body {
 
 
 /* .grids {
-    width: 45.5px;
-    height: 45.5px;
+    width: 44.5px;
+    height: 44.5px;
     border: 2px solid white;
     background-color: bisque;
 } */
