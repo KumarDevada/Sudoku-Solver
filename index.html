@@ -447,157 +447,177 @@
             printZero();
             popup.classList.remove("open-popup");
         }
-
-        function getElement(id) {
+        
+        
+        function getElement(id) {    
             var elem = document.getElementById(id);
-            if (typeof elem !== 'undefined' && elem !== null) {
+            if(typeof elem !== 'undefined' && elem !== null) {
                 return parseInt(document.getElementById(id).value);
-            } else {
+            }
+            else{
                 return -1;
             }
         }
 
-        let grid = [];
+       
+        
+            let grid = [];
 
-        // creating two dimensional array
-        for (let i = 0; i < 9; i++) {
-            for (let j = 0; j < 9; j++) {
-                grid[i] = [];
+           
+            for (let i = 0; i< 9; i++) {
+                for(let j = 0; j< 9; j++) {
+                    grid[i] = [];
+                }
             }
-        }
-
-        // inserting elements to array
-
-        function inputing() {
-
-            for (let i = 0; i < 9; i++) {
-                for (let j = 0; j < 9; j++) {
-
+            
+        function inputing(){
+            
+            for(let i=0;i<9;i++){
+                for(let j=0;j<9;j++){
+                    
                     str = i.toString() + j.toString();
-
-                    if (getElement(str)) {
-                        grid[i][j] = getElement(str);
-                    } else {
-                        grid[i][j] = 0;
-                    }
-
+                    grid[i][j] = getElement(str);
                 }
             }
-            // console.log(grid);
+            console.log(grid);
         }
 
+        
+
+        
+
+ 
+        const N = 9;
+ 
+ // Bitmasks for each row/column/box
+ let row = new Array(N), col = new Array(N), box = new Array(N);
+ let seted = false;
+  
+ // Utility function to find the box index
+ // of an element at position [i][j] in the grid
+ function getBox(i,j)
+ {
+     return Math.floor(i / 3) * 3 + Math.floor(j / 3);
+ }
+  
+ // Utility function to check if a number
+ // is present in the corresponding row/column/box
+ function isSafe(i,j,number)
+ {
+     return !((row[i] >> number) & 1)
+         && !((col[j] >> number) & 1)
+         && !((box[getBox(i,j)] >> number) & 1);
+ }
+  
+ // Utility function to set the initial values of a Sudoku board
+ // (map the values in the bitmasks)
+ function setInitialValues(grid)
+ {
+     for (let i = 0; i < N;i++)
+         for (let j = 0; j < N; j++)
+                 row[i] |= 1 << grid[i][j],
+                 col[j] |= 1 << grid[i][j],
+                 box[getBox(i, j)] |= 1 << grid[i][j];
+ }
+  
+ /* Takes a partially filled-in grid and attempts
+ to assign values to all unassigned locations in
+ such a way to meet the requirements for
+ Sudoku solution (non-duplication across rows,
+ columns, and boxes) */
+ function SolveSudoku(grid ,i, j)
+ {
+     // Set the initial values
+     if(!seted){
+         seted = true,
+         setInitialValues(grid);
+     }
+  
+     if(i == N - 1 && j == N)
+         return true;
+     if(j == N){
+         j = 0;
+         i++;
+     }
+  
+     if(grid[i][j])
+         return SolveSudoku(grid, i, j + 1);
+  
+     for (let nr = 1; nr <= N;nr++)
+     {
+         if(isSafe(i, j, nr))
+         {
+             /* Assign nr in the
+                 current (i, j)
+                 position and
+                 add nr to each bitmask
+             */
+             grid[i][j] = nr;
+             row[i] |= 1 << nr;
+             col[j] |= 1 << nr;
+             box[getBox(i, j)] |= 1 << nr;
+  
+             if(SolveSudoku(grid, i,j + 1))
+                 return true;
+  
+             // Remove nr from each bitmask
+             // and search for another possibility
+             row[i] &= ~(1 << nr);
+             col[j] &= ~(1 << nr);
+             box[getBox(i, j)] &= ~(1 << nr);
+         }
+  
+         grid[i][j] = 0;
+     }
+  
+     return false;
+ }
+  
+ // Utility function to print the solved grid
+ function print(grid)
+ {
+     for (let i = 0; i < N; i++){
+         for (let j = 0; j < N; j++){
+            str = i.toString() + j.toString();
+            document.getElementById(str).value = grid[i][j];
+
+         }
+         
+     }
+ }
+  
+ // Driver Code
+  
+     // 0 means unassigned cells
+     function driver(grid){
+        inputing();
+     if (SolveSudoku(grid,0 ,0))
+         print(grid);
+     else
+         openPopup();
+     }
+
+  
 
 
-        let N = 9;
-
-        function solveSudoku(grid, row, col) {
 
 
-            if (row == N - 1 && col == N) {
-                return true;
-            }
-
-            if (col == N) {
-                row++;
-                col = 0;
-            }
-
-
-            if (grid[row][col] != 0) {
-                return solveSudoku(grid, row, col + 1);
-            }
-
-            for (let num = 1; num < 10; num++) {
-
-                // Check if it is safe to place
-                // the num (1-9) in the given
-                // row ,col ->we move to next column
-                if (isSafe(grid, row, col, num)) {
-
-                    /* assigning the num in the current
-                    (row,col) position of the grid and
-                    assuming our assigned num in the position
-                    is correct */
-                    grid[row][col] = num;
-
-                    // Checking for next
-                    // possibility with next column
-                    if (solveSudoku(grid, row, col + 1)) {
-                        return true;
-                    }
-                }
-
-                /* removing the assigned num , since our
-                assumption was wrong , and we go for next
-                assumption with diff num value */
-                grid[row][col] = 0;
-            }
-
-            return false;
-        }
-
-        /* A utility function to print grid */
-        function print(grid) {
-            for (let i = 0; i < N; i++) {
-                for (let j = 0; j < N; j++) {
+        function reset(grid){
+            for(let i = 0; i < 9; i++)
+            {
+                for(let j = 0; j < 9; j++){
                     str = i.toString() + j.toString();
-                    document.getElementById(str).value = grid[i][j];
+                    document.getElementById(str).value = 0;
 
                 }
             }
         }
+        
+        
+        
+        
 
-        function printZero() {
-            for (let i = 0; i < N; i++) {
-                for (let j = 0; j < N; j++) {
-                    str = i.toString() + j.toString();
-                    document.getElementById(str).value = "";
-
-                }
-            }
-        }
-
-
-        function isSafe(grid, row, col, num) {
-
-
-            for (let x = 0; x <= 8; x++)
-                if (grid[row][x] == num) {
-                    return false;
-                }
-
-
-            for (let x = 0; x <= 8; x++)
-                if (grid[x][col] == num) {
-                    return false;
-                }
-
-
-            let startRow = row - row % 3,
-                startCol = col - col % 3;
-
-            for (let i = 0; i < 3; i++) {
-                for (let j = 0; j < 3; j++) {
-                    if (grid[i + startRow][j + startCol] == num) {
-                        return false;
-                    }
-                }
-            }
-
-            return true;
-        }
-
-
-
-        function driver(grid) {
-            inputing();
-            if (solveSudoku(grid, 0, 0)) {
-                print(grid);
-            } else {
-                openPopup();
-            }
-        }
-    </script>
+      </script>
 
 
 </body>
