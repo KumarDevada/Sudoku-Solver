@@ -7,32 +7,39 @@ body {
 }
 
 .board {
+    width: 341px;
+    height: 341px;
     display: flex;
     /* flex-direction: column;
     justify-content: flex-start; */
     flex-direction: column;
     justify-content: space-between;
-    width: 405px;
-    background-color: #333;
-    height: 405px;
+    background-color: black;
     border: 5px solid black;
+    padding: 0px;
     box-shadow: 10px 10px 5px #aaaaaa;
 }
 
 .row {
-    width: 405px;
-    background-color: #333;
-    height: 135px;
+    width: 341px;
+    background-color: black;
+    height: 112px;
     display: flex;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
     justify-content: space-between;
 }
 
 .matrix {
-    width: 133px;
-    height: 133px;
+    width: 112px;
+    height: 112px;
     display: flex;
     flex-wrap: wrap;
-    background-color: pink;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    background-color: white;
 }
 
 
@@ -48,28 +55,13 @@ input[type="text"] {
     height: 85%;*/
     display: inline;
     text-align: center;
-    width: 43px;
-    height: 43px;
-    border: 1px solid white;
+    width: 36px;
+    height: 36px;
     background-color: bisque;
     margin: 0px;
     padding: 0px;
-}
-
-hr {
-    height: 2px;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    background-color: black;
-}
-
-br {
-    height: 100%;
-    width: 2px;
-    padding: 0;
-    margin: 0;
-    background-color: black;
+    border: 0px;
+    margin-right: 1px;
 }
 
 #btn {
