@@ -3,48 +3,53 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: aliceblue;
 }
 
-td {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #000;
-    font-size: 5px;
-    font-weight: bold;
- }
- td:nth-of-type(3n) {
-    border-right: 3px solid black !important;
- }
- tr:nth-of-type(3n) td {
-    border-bottom: 3px solid black !important;
- }
- table {
-    border: 3px solid black !important;
- }
+.board {
+    width: 332px;
+    height: 332px;
+    display: flex;
+    /* flex-direction: column;
+    justify-content: flex-start; */
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: black;
+    border: 5px solid black;
+    box-shadow: 10px 10px 5px #aaaaaa;
+}
 
-/* .board {
+.row {
+    width: 332px;
+    background-color: black;
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.matrix {
+    width: 110px;
+    height: 109px;
     display: flex;
     flex-wrap: wrap;
-    width: 450px;
-    background-color: #333;
-    height: 450px;
-    border: 5px solid black;
-} */
+    background-color: black;
+}
 
-.grids {
-    width: 46px;
-    height: 46px;
+
+/* .grids {
+    width: 45.5px;
+    height: 45.5px;
     border: 2px solid white;
     background-color: bisque;
-}
+} */
 
 input[type="text"] {
     /* width: 85%;
     height: 85%;*/
     display: inline;
     text-align: center;
-    width: 43px;
-    height: 43px;
+    width: 35px;
+    height: 35px;
     border: 1px solid white;
     background-color: bisque;
     margin: 0px;
@@ -58,4 +63,52 @@ input[type="text"] {
     border-radius: 5px;
     margin: 15px;
     color: white;
+}
+
+.popup {
+    width: 30%;
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
