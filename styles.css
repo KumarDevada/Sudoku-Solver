@@ -7,8 +7,8 @@ body {
 }
 
 .board {
-    width: 332px;
-    height: 332px;
+    width: 335px;
+    height: 335px;
     display: flex;
     /* flex-direction: column;
     justify-content: flex-start; */
@@ -16,14 +16,18 @@ body {
     justify-content: space-between;
     background-color: black;
     border: 5px solid black;
+    padding: 0px;
     box-shadow: 10px 10px 5px #aaaaaa;
 }
 
 .row {
-    width: 332px;
+    width: 335px;
     background-color: black;
     height: 110px;
     display: flex;
+    padding: 0px;
+    margin: 0px;
+    border: none;
     justify-content: space-between;
 }
 
