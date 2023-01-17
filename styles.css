@@ -7,8 +7,8 @@ body {
 }
 
 .board {
-    width: 335px;
-    height: 335px;
+    width: 341px;
+    height: 341px;
     display: flex;
     /* flex-direction: column;
     justify-content: flex-start; */
@@ -21,22 +21,25 @@ body {
 }
 
 .row {
-    width: 335px;
+    width: 341px;
     background-color: black;
-    height: 110px;
+    height: 112px;
     display: flex;
     padding: 0px;
     margin: 0px;
-    border: none;
+    border: 0px;
     justify-content: space-between;
 }
 
 .matrix {
-    width: 110px;
-    height: 109px;
+    width: 112px;
+    height: 112px;
     display: flex;
     flex-wrap: wrap;
-    background-color: black;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    background-color: white;
 }
 
 
@@ -52,12 +55,13 @@ input[type="text"] {
     height: 85%;*/
     display: inline;
     text-align: center;
-    width: 35px;
-    height: 35px;
-    border: 1px solid white;
+    width: 36px;
+    height: 36px;
     background-color: bisque;
     margin: 0px;
     padding: 0px;
+    border: 0px;
+    margin-right: 1px;
 }
 
 #btn {
