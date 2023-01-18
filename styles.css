@@ -75,15 +75,15 @@ input[type="text"] {
 
 .popup {
     width: 30%;
-    background-color: #FFFFFF;
-    border-radius: 6px;
+    background-color: #333;
+    border-radius: 10px;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.1);
     text-align: center;
     padding: 0 30px 30px;
-    color: #333333;
+    color: white;
     visibility: hidden;
     transition: transform 0.4s, top 0.4s;
 }
