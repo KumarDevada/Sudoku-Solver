@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -394,10 +395,7 @@
     </div>
 
     <div class="popup" id="popup">
-        <!-- <img src="tick.png" alt=""> -->
-        <h2>Sorry !</h2>
-        <p>Invalid Combination.</p>
-        <!-- <p>Please Try Again.</p> -->
+        <h2 style="margin-bottom: -5px;">Invalid Input !</h2>
         <button type="button" onclick="closePopup()">Try Again</button>
     </div>
 
@@ -589,11 +587,34 @@
 
 
 
+
+
         function driver(grid) {
             inputing();
-            if (solveSudoku(grid, 0, 0)) {
+
+            let yes = true;
+            for (let i = 0; i < N; i++) {
+                for (let j = 0; j < N; j++) {
+                    if (grid[i][j] !== 0) {
+                        let k = grid[i][j];
+                        grid[i][j] = 0;
+                        if (isSafe(grid, i, j, k)) {
+                            grid[i][j] = k;
+                        } else {
+                            grid[i][j] = k;
+                            yes = false;
+                            break;
+                        }
+                    }
+                }
+            }
+
+
+            if (yes) {
+                solveSudoku(grid, 0, 0);
                 print(grid);
             } else {
+                printZero();
                 openPopup();
             }
         }
