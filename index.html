@@ -8,19 +8,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/ef8a591cb3.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
     <nav class="navbar">
         <div class="pagename">
-            <img src="./icon.webp" alt="icon">
-            <h1>Sudoku Solver</h1>
+            <img src="icon.webp" alt="">
+            <h1 style="margin-left: 10px;">Sudoku <span style="color:#6fd649">Solver</span></h1>
         </div>
 
         <div class="menu">
-            <button class="login">Login</button>
-            <button class="signup">Sign Up</button>
+            <i class="fas fa-bars dropbtn" onclick="myFunction()" style="color:white;"></i>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#">Tutorial</a>
+                <a href="#">Login</a>
+                <a href="#">Sign up</a>
+                <a href="#">About</a>
+            </div>
         </div>
     </nav>
 
@@ -408,14 +414,17 @@
     </div>
 
     <div class="popup" id="popup">
-        <h2 style="margin-bottom: -5px;">Invalid Input !</h2>
+        <h3>Invalid Input !</h3>
         <button type="button" onclick="closePopup()">Try Again</button>
     </div>
 
-    <input type="button" name="" id="btn" value="Solve" onclick="driver(grid)">
 
+    <div class="btnbox">
+        <input type="button" name="" id="btn" value="Solve" onclick="driver(grid)">
 
-    <input type="button" name="" id="btn" value="Reset" onclick="printZero()">
+        <input type="button" name="" id="btn" value="Reset" onclick="printZero()">
+    </div>
+
 
 
 
@@ -423,9 +432,15 @@
 
 
     <div class="footer">
-        <a href="#">Contact Us</a>
-        <a href="#">Support</a>
-        <a href="#">Follow Us</a>
+        <div class="footerlinks">
+            <a href="#">Contact Us</a>
+            <a href="#">Support</a>
+            <a href="#">Follow Us</a>
+        </div>
+
+        <div class="br"></div>
+
+        <p style="color: white">&copy; 2023 Copyright: Sudoku Solver.com</p>
     </div>
 
 
@@ -452,6 +467,25 @@
 
 
     <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+
         let popup = document.getElementById("popup");
 
         function openPopup() {
