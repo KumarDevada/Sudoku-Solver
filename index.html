@@ -20,15 +20,31 @@
         </div>
 
         <div class="menu">
-            <i class="fas fa-bars dropbtn" onclick="myFunction()" style="color:white;"></i>
+            <i class="fas fa-bars dropbtn" onclick="myFunction()" style="color:white; font-size: 30px;"></i>
             <div id="myDropdown" class="dropdown-content">
-                <a href="#">Tutorial</a>
+                <a href="#" onclick="openTutorial()">Tutorial</a>
                 <a href="#">Login</a>
                 <a href="#">Sign up</a>
                 <a href="#">About</a>
             </div>
         </div>
     </nav>
+
+
+    <div class="tutorial" id="tutorial">
+        <div class="headpart">
+            <h3 style="margin: 10px 0px; margin-left: 30px; color:#6fd649;">Tutorial</h3>
+            <i class="fas fa-close" style="color: red; font-size: 30px; margin-right: 20px;" onclick="closeTutorial()"></i>
+        </div>
+
+        <div class="br" style="width: 100%; background-color:#6fd649"></div>
+        <pre><p>1. Select some boxes on the board.</p></pre>
+        <pre><p>2. Fill them with numbers [1-9].</p></pre>
+        <pre><p>3. Avoid giving invalid combinations.</p></pre>
+        <pre><p>4. Click <span style="color:#6fd649;">Solve</span> to complete the sudoku.</p></pre>
+        <pre><p>5. Click <span style="color:#6fd649;">Reset</span> to reset the board.</p></pre>
+
+    </div>
 
 
     <div class="board">
@@ -484,6 +500,17 @@
                 }
             }
         }
+
+        let tutorial = document.getElementById("tutorial");
+
+        function openTutorial() {
+            tutorial.classList.add("open-tutorial");
+        }
+
+        function closeTutorial() {
+            tutorial.classList.remove("open-tutorial");
+        }
+
 
 
         let popup = document.getElementById("popup");
